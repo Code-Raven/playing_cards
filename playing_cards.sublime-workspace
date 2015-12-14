@@ -1,0 +1,608 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ng-ch",
+				"ng-checked	AngularJS"
+			],
+			[
+				"h",
+				"h3	Tag"
+			],
+			[
+				"H",
+				"H1	Tag"
+			],
+			[
+				"ng-in",
+				"ng-init	AngularJS"
+			],
+			[
+				"ng-r",
+				"ng-repeat	AngularJS"
+			],
+			[
+				"ng-mou",
+				"ng-mouseover	AngularJS"
+			],
+			[
+				"extra",
+				"extraCards"
+			],
+			[
+				"jok",
+				"joker_1"
+			],
+			[
+				"$sc",
+				"$scope	AngularJS"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"hea",
+				"header	Tag"
+			],
+			[
+				"se",
+				"section	Tag"
+			],
+			[
+				"i",
+				"id	Attr"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 890,
+				"line_ending": "Unix",
+				"name": "Read Me"
+			}
+		},
+		{
+			"file": "tests/test.js",
+			"settings":
+			{
+				"buffer_size": 1399,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/js/app.js",
+			"settings":
+			{
+				"buffer_size": 1618,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/data/cards.json",
+			"settings":
+			{
+				"buffer_size": 4666,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/index.html",
+			"settings":
+			{
+				"buffer_size": 3626,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/js/deck.js",
+			"settings":
+			{
+				"buffer_size": 11621,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "karma.conf.js",
+			"settings":
+			{
+				"buffer_size": 1886,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"last_filter": "Package Control: Install Package",
+		"selected_items":
+		[
+			[
+				"Package Control: Install Package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: INst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/ODEN/Projects/playing_cards",
+		"/Users/ODEN/Projects/playing_cards/app",
+		"/Users/ODEN/Projects/playing_cards/app/data",
+		"/Users/ODEN/Projects/playing_cards/app/js",
+		"/Users/ODEN/Projects/playing_cards/tests"
+	],
+	"file_history":
+	[
+		"/Users/ODEN/Projects/playing_cards/js/app.js",
+		"/Users/ODEN/Projects/playing_cards/js/deck.js",
+		"/Users/ODEN/Projects/playing_cards/index.html",
+		"/Users/ODEN/Projects/playing_cards/partials/deck.html",
+		"/Users/ODEN/Projects/playing_cards/partials/about.html",
+		"/Users/ODEN/Projects/playing_cards/partials/copyright.html",
+		"/Users/ODEN/Projects/playing_cards/partials/card.html",
+		"/Users/ODEN/Projects/playing_cards/css/app.css",
+		"/Users/ODEN/Projects/playing_cards/partials/hand.html",
+		"/Users/ODEN/Projects/playing_cards/partials/sorted-cards.html",
+		"/Users/ODEN/Projects/playing_cards/partials/shuffled-cards.html",
+		"/Users/ODEN/Projects/playing_cards/js/angular-route.min.js",
+		"/Users/ODEN/Projects/playing_cards/js/angular.min.js",
+		"/Users/ODEN/Projects/playing_cards/css/card-animations.css",
+		"/Users/ODEN/Projects/playing_cards/partials/draw.html",
+		"/Users/ODEN/Projects/backups/playing_cards/partials/draw.html",
+		"/Users/ODEN/Projects/playing_cards/partials/main-navigation.html",
+		"/Users/ODEN/Projects/spa_playing_cards/index.html",
+		"/Users/ODEN/Projects/playing_cards/js/jquery.min.js",
+		"/Users/ODEN/Projects/playing_cards/js/bootstrap.min.js",
+		"/Users/ODEN/Projects/playing_cards/app.js",
+		"/Users/ODEN/Projects/spa_playing_cards/app.css",
+		"/Users/ODEN/Projects/spa_playing_cards/app.js",
+		"/Users/ODEN/Downloads/clubs_02.svg",
+		"/Users/ODEN/Downloads/VECTOR_PLAYING_CARDS_VERSION_2.0.1/52_Cards_Color_Faces_Set/Color_52_Faces_v.2.0.svg",
+		"/Users/ODEN/Projects/website/app.js",
+		"/Users/ODEN/Projects/website/index.html",
+		"/Users/ODEN/Projects/website/main.css"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/ODEN/Projects/playing_cards/app/data",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"suit:",
+			"suitNum",
+			"suit:",
+			"suit",
+			"deckNum",
+			"hidden",
+			"name",
+			"'",
+			"hideCards",
+			"layout",
+			"getSrc",
+			"card.name",
+			"prev",
+			"getSrc",
+			", d",
+			"dataset",
+			"animStyle",
+			"numCardsDrawn",
+			"numCards",
+			"attrib",
+			"hand",
+			"deck",
+			"removeCards",
+			"hand",
+			"inHandDeck",
+			"player\ninHandDeck",
+			"player",
+			"numCards",
+			"indexOffset",
+			"setIndices",
+			"suitIndices",
+			"numCardsSelected",
+			"players",
+			"srcMap",
+			"card",
+			"sortDesc",
+			"indexOffset",
+			"DeckController",
+			">",
+			"activeTab",
+			"clubs",
+			"deckNum: 0",
+			", }",
+			",",
+			"src",
+			"clubs",
+			"card_back",
+			"clubs",
+			"card_back",
+			"'clubs_",
+			"clubs",
+			"'svgs/",
+			"clubs_2",
+			"card_back",
+			"diamonds",
+			"spades",
+			"king"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 890,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								889,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Read Me",
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "tests/test.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1399,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								583,
+								583
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 92.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/js/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1618,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1071,
+								1071
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 434.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/data/cards.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4666,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								708,
+								708
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/index.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3626,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 629.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/js/deck.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11621,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								297,
+								297
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "karma.conf.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1886,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								640,
+								640
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "playing_cards.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 219.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,144 @@
+@import url("card-animations.css");
+
+.top-bar {
+    background: #222;
+    text-align: center;
+    border: 2px solid #111;
+    height: 80px;
+    color: #CCC;
+}
+
+.top-bar h1 {
+  font-family: "sans-serif";
+  margin: 20px;
+}
+
+.centered-pills {
+    display: flex;
+    justify-content: center;
+    padding-top: 9px;
+}
+
+#start {
+	text-align: initial;
+	padding: 10px;
+    margin: 10px;
+}
+
+.cards {
+	margin: 15px;
+}
+
+.small-buttons a {
+	margin: 0 !important;
+	padding: 3px 9px !important;
+}
+
+.cntr-btn {
+	display: table;
+	margin: 0 auto
+}
+
+.btn {
+	padding: 0 5px;
+}
+
+.btn:focus {
+    outline: none;
+    background-color: #fff;
+}
+
+.btn:active {
+    outline: none;
+}
+
+.btn:hover {
+    outline: none;
+    background-color: #fff;
+}
+
+.btn:active:focus {
+	outline: none;
+}
+
+.center-div {
+    margin: 0 auto;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.center-width-div {
+	width: auto;
+    margin: 0 auto;
+}
+
+.abs-pos {
+	position: absolute;
+}
+
+.rel-pos {
+	position: relative;
+}
+
+.card-width {
+	width: 100px;
+}
+
+.card-div-height {
+	height: 150px;
+}
+
+.card-div-shuffle {
+    height: 120px;
+}
+
+.card-div-width {
+	width: 100%;
+	padding-bottom: 18px;
+}
+
+.backgrnd-red {	/*for testing…*/
+	background-color: #F00;
+}
+
+.backgrnd-blue {	/*for testing…*/
+	background-color: #00F;
+}
+
+.card-check {
+	margin: 2px 0 0;
+	line-height: normal;
+    margin-left: 3px;
+    margin-right: 8px;
+    margin: 3px;
+    color: #222;
+}
+
+.shuffle-btn-grp {
+	margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.no-select {
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.card:hover {
+    position: relative;
+    cursor: pointer;
+    top: -10px;
+}
+
+.clear-cards:hover {
+    border: 1px solid #C02;
+    color: #C02;
+}
+

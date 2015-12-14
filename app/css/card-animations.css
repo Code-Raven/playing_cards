@@ -1,0 +1,285 @@
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animRight12 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% + 300px - 50px);
+		left: -webkit-calc(50% + 300px - 50px);
+		left: -o-calc(50% + 300px - 50px);
+		left: calc(50% + 300px - 50px);
+    }
+}
+
+/* Standard syntax */
+@keyframes animRight12 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% + 300px - 50px);
+		left: -webkit-calc(50% + 300px - 50px);
+		left: -o-calc(50% + 300px - 50px);
+		left: calc(50% + 300px - 50px);
+    }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animRight11 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% + 250px - 50px);
+		left: -webkit-calc(50% + 250px - 50px);
+		left: -o-calc(50% + 250px - 50px);
+		left: calc(50% + 250px - 50px);
+    }
+}
+
+/* Standard syntax */
+@keyframes animRight11 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% + 250px - 50px);
+		left: -webkit-calc(50% + 250px - 50px);
+		left: -o-calc(50% + 250px - 50px);
+		left: calc(50% + 250px - 50px);
+    }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animRight10 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% + 200px - 50px);
+		left: -webkit-calc(50% + 200px - 50px);
+		left: -o-calc(50% + 200px - 50px);
+		left: calc(50% + 200px - 50px);
+    }
+}
+
+/* Standard syntax */
+@keyframes animRight10 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% + 200px - 50px);
+		left: -webkit-calc(50% + 200px - 50px);
+		left: -o-calc(50% + 200px - 50px);
+		left: calc(50% + 200px - 50px);
+    }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animRight9 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% + 150px - 50px);
+		left: -webkit-calc(50% + 150px - 50px);
+		left: -o-calc(50% + 150px - 50px);
+		left: calc(50% + 150px - 50px);
+    }
+}
+
+/* Standard syntax */
+@keyframes animRight9 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% + 150px - 50px);
+		left: -webkit-calc(50% + 150px - 50px);
+		left: -o-calc(50% + 150px - 50px);
+		left: calc(50% + 150px - 50px);
+    }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animRight8 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% + 100px - 50px);
+		left: -webkit-calc(50% + 100px - 50px);
+		left: -o-calc(50% + 100px - 50px);
+		left: calc(50% + 100px - 50px);
+    }
+}
+
+/* Standard syntax */
+@keyframes animRight8 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% + 100px - 50px);
+		left: -webkit-calc(50% + 100px - 50px);
+		left: -o-calc(50% + 100px - 50px);
+		left: calc(50% + 100px - 50px);
+    }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animRight7 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% + 50px - 50px);
+		left: -webkit-calc(50% + 50px - 50px);
+		left: -o-calc(50% + 50px - 50px);
+		left: calc(50% + 50px - 50px);
+    }
+}
+
+/* Standard syntax */
+@keyframes animRight7 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% + 50px - 50px);
+		left: -webkit-calc(50% + 50px - 50px);
+		left: -o-calc(50% + 50px - 50px);
+		left: calc(50% + 50px - 50px);
+    }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animRight6 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% + 0px - 50px);
+		left: -webkit-calc(50% + 0px - 50px);
+		left: -o-calc(50% + 0px - 50px);
+		left: calc(50% + 0px - 50px);
+    }
+}
+
+/* Standard syntax */
+@keyframes animRight6 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% + 0px - 50px);
+		left: -webkit-calc(50% + 0px - 50px);
+		left: -o-calc(50% + 0px - 50px);
+		left: calc(50% + 0px - 50px);
+    }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animRight5 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% - 50px - 50px);
+		left: -webkit-calc(50% - 50px - 50px);
+		left: -o-calc(50% - 50px - 50px);
+		left: calc(50% - 50px - 50px);
+    }
+}
+
+/* Standard syntax */
+@keyframes animRight5 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% - 50px - 50px);
+		left: -webkit-calc(50% - 50px - 50px);
+		left: -o-calc(50% - 50px - 50px);
+		left: calc(50% - 50px - 50px);
+    }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animRight4 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% - 100px - 50px);
+		left: -webkit-calc(50% - 100px - 50px);
+		left: -o-calc(50% - 100px - 50px);
+		left: calc(50% - 100px - 50px);
+    }
+}
+
+/* Standard syntax */
+@keyframes animRight4 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% - 100px - 50px);
+		left: -webkit-calc(50% - 100px - 50px);
+		left: -o-calc(50% - 100px - 50px);
+		left: calc(50% - 100px - 50px);
+    }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animRight3 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% - 150px - 50px);
+		left: -webkit-calc(50% - 150px - 50px);
+		left: -o-calc(50% - 150px - 50px);
+		left: calc(50% - 150px - 50px);
+    }
+}
+
+/* Standard syntax */
+@keyframes animRight3 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% - 150px - 50px);
+		left: -webkit-calc(50% - 150px - 50px);
+		left: -o-calc(50% - 150px - 50px);
+		left: calc(50% - 150px - 50px);
+    }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animRight2 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% - 200px - 50px);
+		left: -webkit-calc(50% - 200px - 50px);
+		left: -o-calc(50% - 200px - 50px);
+		left: calc(50% - 200px - 50px);
+    }
+}
+
+/* Standard syntax */
+@keyframes animRight2 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% - 200px - 50px);
+		left: -webkit-calc(50% - 200px - 50px);
+		left: -o-calc(50% - 200px - 50px);
+		left: calc(50% - 200px - 50px);
+    }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animRight1 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% - 250px - 50px);
+		left: -webkit-calc(50% - 250px - 50px);
+		left: -o-calc(50% - 250px - 50px);
+		left: calc(50% - 250px - 50px);
+    }
+}
+
+/* Standard syntax */
+@keyframes animRight1 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% - 250px - 50px);
+		left: -webkit-calc(50% - 250px - 50px);
+		left: -o-calc(50% - 250px - 50px);
+		left: calc(50% - 250px - 50px);
+    }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animRight0 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% - 300px - 50px);
+		left: -webkit-calc(50% - 300px - 50px);
+		left: -o-calc(50% - 300px - 50px);
+		left: calc(50% - 300px - 50px);
+    }
+}
+
+/* Standard syntax */
+@keyframes animRight0 {
+    from {left:0;}
+    to {
+		left: -moz-calc(50% - 300px - 50px);
+		left: -webkit-calc(50% - 300px - 50px);
+		left: -o-calc(50% - 300px - 50px);
+		left: calc(50% - 300px - 50px);
+    }
+}

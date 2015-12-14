@@ -1,0 +1,85 @@
+<!--  TODO'S, look at "()" to get an idea of what I will be building…
+
+	********Requirements********
+
+	TODO: Make single-page application (SPA), using AngularJS version 1.x
+	TODO: Displays a standard deck of 52 playing cards (four suites of thirteen cards each)
+	TODO: Display playing cards (come up with a creative solution)
+	TODO: Extend HTML syntax to best express solution (I'm assuming this means custom directives)
+			(May need to make service, and request playing card JSON data)
+	TODO: Implement design patterns and constructs (Think about what design patters and
+			constructs to use).
+	TODO: Write automated tests for ALL work "use whatever testing framework I prefer" (Look into
+			testing features for angular…). Fully test, and make sure code is shippable! "TDD or BDD"
+	TODO: Test in Windows 7
+	TODO: Review code, think about best practices, comment!
+	TODO: Use package managment, if needed (e.g. bower)
+
+	********Submission********
+	
+	* put work in shared location "Do not attach to email"
+	* email code_samples@shiftwise.net and provide instructions on how to get work
+	* do not include binaries "dll, exe, etc." in zip file (leaves me to believe that project should
+	* 	be zipped)
+	* 
+	* TODO: include name in here…
+	
+	********Breakdown********
+	
+	NOTE: Before graphical effects, let's get the functionality working first!
+	TODO: Attributes: https://commons.wikimedia.org/wiki/Category:SVG_playing_cards
+
+	TODO: Randomly shuffle deck at start of game
+	TODO: Provide user way to randomly shuffle deck
+	TODO: Provide user way to shuffle deck in ascending order (smallest to largest, maybe options)
+	TODO: Provide user way to draw number of random cards from deck (set a min/max number to draw?)
+	TODO: Provide number of players (checkbox option to auto next player? button to go to next player? Hide button if
+			one player?)
+	TODO: Show number of cards available, number of cards drawn, and number of cards in-hand (for each player)
+	TODO: Option for player to toss cards (will probably need two card piles than)
+	
+	Optional:
+		TODO: Provide option (checkboxes?) to include/exclude suits.
+		TODO: Provide option (checkboxes?) to include/exclude cards (numbers and faces).
+		TODO: Provide option (checkboxes?) to include/exclude jockers (red and black).
+
+		TODO: Show card images, face up or face down (button should toggle this…).
+		TODO: Should be able to click card (which will add it to the player's deck).
+
+		<*********** BY BRANDEN ODEN ************>
+-->
+
+<!DOCTYPE html>
+<html ng-app='deck'>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/app.css"/>
+  </head>
+  <body>
+	<header class="top-bar">
+		<H1>- PLAYING CARDS -</H1>
+
+		<ul class="nav nav-pills centered-pills">
+			<li ng-class="{active:activeTab === getLocTab('deck')}">
+  				<a ng-click="activeTab = getLocTab('deck')" href=#{{getLocPath('deck')}}>Deck</a>
+  			</li>
+			<li ng-class="{active:activeTab === getLocTab('hand')}">
+				<a ng-click="activeTab = getLocTab('hand')" href=#{{getLocPath('hand')}}>Hand</a>
+			</li>
+  			<li ng-class="{active:activeTab === getLocTab('about')}">
+  				<a ng-click="activeTab = getLocTab('about')" href=#{{getLocPath('about')}}>About</a>
+  			</li>
+		</ul>
+
+		<div ng-view>
+			<!-- spa content injected here -->
+		</div>
+
+	</header>
+
+	<script type="text/javascript" src="js/angular.min.js"/></script>
+	<script type="text/javascript" src="js/angular-route.min.js"/></script>
+    <script type="text/javascript" src="js/app.js"/></script>
+    <script type="text/javascript" src="js/deck.js"/></script>
+  </body>
+</html>
