@@ -21,8 +21,8 @@
 			return numCardsChosen;
 		};
 
-	    $scope.chooseNumCards = function(deck, numCards) {
-	        numCardsChosen = Math.min(numCards, deck.length);
+	    $scope.chooseNumCards = function(availCards, numCards) {
+	        numCardsChosen = Math.min(numCards, availCards.length);
 	    };
 
 	    $scope.hideCards = function(cards, isHidden) {
@@ -67,11 +67,11 @@
 			};
 		};
 
-		$scope.drawClearCards = function(deck, hand, numCards) {
+		$scope.drawClearCards = function(deck, hand) {
 	    	if(numCardsDrawn) {
 	    		$scope.clearCards(deck, hand);
 	    	} else {
-	    		$scope.drawCards(deck, hand, numCards);
+	    		$scope.drawCards(deck, hand);
 	    	}
 	    };
 	});
