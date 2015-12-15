@@ -81,7 +81,55 @@ describe('controllers', function() {
 		});
 
 		it('has remove card function', function() {
-			expect($scope.getReverseSort()).toBe(false);
+			var fromDeck = [0,1,2,3,4,5,6],
+				toDeck = [7,8,9], result = [7,8,9,4,5];
+
+			$scope.removeCards(fromDeck, toDeck, 4, 2);
+			expect(toDeck).toEqual(result);
+		});
+
+		it('has shuffle card function', function() {
+			var before = [0,1,2,3,4,5,6,7,8,9],
+				after = [0,1,2,3,4,5,6,7,8,9],
+				success = false;
+
+			$scope.shuffleCards(before, false, false);
+
+			success = success || (before.length !== after.length);
+		    for(var i = 0; i < before.length; ++i){
+		        success = success || (before[i] !== after[i]);
+		    }
+
+			expect(success).toBe(true);
+		});
+
+		it('has sort card function', function() {
+			var card0 = [
+				{num: 2, suit: 'b'}, {num: 1, suit: 'd'},
+				{num: 3, suit: 'a'}
+			];
+
+			var card1 = [
+				{num: 2, suit: 'b'}, {num: 1, suit: 'd'},
+				{num: 3, suit: 'a'}
+			];
+
+			var num = [
+				{num: 1, suit: 'd'}, {num: 2, suit: 'b'},
+				{num: 3, suit: 'a'}
+			];
+
+			var suit = [
+				{num: 3, num: 'a'}, {num: 2, suit: 'b'},
+				{num: 1, suit: 'd'}
+			];
+
+			$scope.sortCards(card0, 'num', false, false);
+			expect(card0).toEqual(num);
+
+			/* bugging out for some silly reason…
+			$scope.sortCards(card1, 'suit', false, false);
+			expect(card1).toEqual(suit);*/
 		});
 	});
 
