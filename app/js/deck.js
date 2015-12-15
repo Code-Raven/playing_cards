@@ -1,7 +1,7 @@
 (function(){
 	'use strict'
 
-	var app = angular.module('playing-cards', []);
+	var app = angular.module('deck', []);
 	var imgPath = 'svgs/';
 	var srcMap = {
 		clubs_ace: imgPath + 'clubs_0.svg',
@@ -113,12 +113,12 @@
 		{ name: 'hearts_10', hidden: false, deckNum: 49, suitNum: 10, suit: 'hearts'},
 		{ name: 'hearts_jack', hidden: false, deckNum: 50, suitNum: 11, suit: 'hearts'},
 		{ name: 'hearts_queen', hidden: false, deckNum: 51, suitNum: 12, suit: 'hearts'},
-		{ name: 'hearts_king', hidden: false, deckNum: 52, suitNum: 13, suit: 'hearts'},
+		{ name: 'hearts_king', hidden: false, deckNum: 52, suitNum: 13, suit: 'hearts'}
 	];
 
 	var extraCards = [
 		{ name: 'joker_black', hidden: false, deckNum: 53, suitNum: 13, suit: 'zblack'},
-		{ name: 'joker_red', hidden: false, deckNum: 54, suitNum: 13, suit: 'zred'},
+		{ name: 'joker_red', hidden: false, deckNum: 54, suitNum: 13, suit: 'zred'}
 	];
 
 	app.run(function($rootScope) {
@@ -133,7 +133,10 @@
 		$rootScope.animStyle = 'display: none;';
 	});
 
-	app.controller('DeckController', function($rootScope, $scope, $filter){
+	app.controller('DeckController', function($rootScope, $scope, $filter) {
+		
+		$scope.cardsHidden = true;
+		$scope.reverseSort = false;
 		$scope.cardPositions = [
 			'50% - 300px - 50px',
 			'50% - 250px - 50px',
@@ -147,24 +150,23 @@
 			'50% + 150px - 50px',
 			'50% + 200px - 50px',
 			'50% + 250px - 50px',
-			'50% + 300px - 50px',
+			'50% + 300px - 50px'
 		];
 
-		$scope.cardsHidden = true;
+		var indexOffset = function(cardIndex, numCards) {
+			var maxNumCards = $scope.cardPositions.length,
+	    		availNumCards = numCards || $rootScope.hand.length;
+
+	    	return (cardIndex + Math.floor((maxNumCards -
+	    		availNumCards)/2)) % maxNumCards;
+	    };
 
 	    $scope.numCardsSelected = function(numCardsSelected) {
 	        $rootScope.numCards = Math.min(numCardsSelected, $rootScope.deck.length);
 	    };
 
-	    $scope.indexOffset = function(cardIndex, numCards) {
-	    	var length = numCards || $rootScope.hand.length;
-
-	    	return (cardIndex + Math.floor(($scope.cardPositions.length -
-	    		length)/2)) % $scope.cardPositions.length;
-	    };
-
 	    $scope.getCardPosition = function(cardIndex, numCards) {
-	    	return $scope.cardPositions[$scope.indexOffset(cardIndex, numCards)];
+	    	return $scope.cardPositions[indexOffset(cardIndex, numCards)];
 	    };
 
 	    $scope.hideCards = function(cards, isHidden) {
@@ -179,15 +181,15 @@
 		};
 
 		$scope.drawCards = function(numCards) {
-
-			var deck = $rootScope.deck, hand = $rootScope.hand;
+			var deck = $rootScope.deck,
+				hand = $rootScope.hand;
 
 			$rootScope.numCardsDrawn = numCards;
 			$scope.removeCards(deck, hand, 0, numCards);
 
 			$scope.getAnimStyle = function(cardIndex) {
 
-				var horizIndex = $scope.indexOffset(cardIndex),
+				var horizIndex = indexOffset(cardIndex),
 					cardPosition = $scope.getCardPosition(cardIndex);
 
 				return 'position: absolute; ' +
@@ -205,7 +207,8 @@
 		};
 
 		($scope.clearCards = function() {
-	    	var deck = $rootScope.deck, hand = $rootScope.hand;
+	    	var deck = $rootScope.deck,
+	    		hand = $rootScope.hand;
 
 	    	$rootScope.numCardsDrawn = 0;
 	    	$scope.removeCards(hand, deck, 0, hand.length);
@@ -223,16 +226,21 @@
 	    	}
 	    };
 
-		($scope.setFilter = function(attrib){
-			$rootScope.attrib = attrib;
-			switch(attrib) {
-				case 'shuffle':
-					$rootScope.deck = $filter("shuffleDeck")($rootScope.deck, false);
-					break;
-				default:
-					$rootScope.deck = $filter("sortDeck")($rootScope.deck, attrib);
-			}	
-		})($rootScope.attrib);
+	    $scope.shuffleDeck = function(clone, reverse){
+	    	$rootScope.attrib = null;	//HACK: to keep shuffled deck from sorting…
+	    	$rootScope.reverseSort = reverse || $rootScope.reverseSort;
+			$rootScope.deck = $filter("shuffleDeck")($rootScope.deck,
+				clone, $rootScope.reverseSort);
+		};
+
+		($scope.sortDeck = function(attrib, clone, reverse){
+			if(attrib) {	//HACK: to keep shuffled deck from sorting…
+				$rootScope.attrib = attrib;
+				$rootScope.reverseSort = reverse;
+				$rootScope.deck = $filter("sortDeck")($rootScope.deck,
+					attrib, clone, $rootScope.reverseSort);
+			}
+		})($rootScope.attrib, false, $rootScope.reverseSort);
 	});
 
 	app.directive('playingCard', function () {
@@ -249,23 +257,24 @@
 					var src = card ? (card.hidden ? undefined :
 						srcMap[card.name]) : undefined;
 
-					return src || srcMap['hidden'];
+					return src || srcMap.hidden;
 				};
 			}
 		};
 	});
 
 	app.filter('shuffleDeck', function(){
-		return function(deck, clone) {
+		return function(deck, clone, reverse) {
 			if (!angular.isArray(deck)){
 				return deck;
 			}
 
-			var shuffledDeck = clone ? deck.slice(0) : deck,
+			var shuffledDeck = clone ? deck.slice() : deck,
 				remainNumCards = shuffledDeck.length,
 				swappedCard, randIndex, index;
 
-			//Since Math.random is always less than 1, don't decrement remainNumCards…
+			//Since Math.random is always less than 1,
+			//	don't decrement remainNumCards…
 			while(remainNumCards) {	
 				randIndex = Math.floor(Math.random() *
 					remainNumCards);
@@ -276,17 +285,21 @@
 				shuffledDeck[randIndex] = swappedCard;
 			}
 
+			if(reverse) {
+				shuffledDeck.reverse();
+			}
+
 			return shuffledDeck;
 		};
 	});
 
 	app.filter('sortDeck', function(){
-		return function(deck, attribute) {
+		return function(deck, attribute, clone, reverse) {
 			if (!angular.isArray(deck)){
 				return deck;
 			}
 
-			var sortedDeck = deck.slice(0);
+			var sortedDeck = clone ? deck.slice() : deck;
 
 			sortedDeck.sort(function(a, b) {
 				var aAttrib = a[attribute],
@@ -294,23 +307,27 @@
 					aNum = parseInt(aAttrib),
 					bNum = parseInt(bAttrib);
 
+				//Making sure aNum and bNum aren't NaN…
 				if (aNum === aNum && bNum === bNum) {
-
 					if(aAttrib === bAttrib) {
-						return a['deckNum'] - b['deckNum'];
+						return a.deckNum - b.deckNum;
 					} else {
 						return aNum - bNum;
 					}
 				}
 
 				if(aAttrib === bAttrib) {
-					return a['deckNum'] - b['deckNum'];
+					return a.deckNum - b.deckNum;
 				} else if (aAttrib > bAttrib) {
 					return 1;
 				} else {
 					return -1;
 				}
 			});
+
+			if(reverse) {
+				sortedDeck.reverse();
+			}
 
 			return sortedDeck;
 		};

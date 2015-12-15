@@ -1,14 +1,20 @@
 <div style="line-height: 16px;" class="no-select">
 
 	<ul class="nav nav-pills centered-pills small-buttons">
-		<li ng-class="{active:attrib === 'suitNum'}">
-			<button type="button" ng-click="setFilter('shuffle');" class="btn btn-default">Shuffle</button>
+		<li>
+			<button type="button" ng-click="shuffleDeck(false);" class="btn btn-default">Shuffle</button>
 		</li>
 		<li ng-class="{active:attrib === 'suitNum'}">
-			<a ng-click="setFilter('suitNum');" href>Sort By Number</a>
+			<a ng-click="sortDeck('suitNum', false, reverseSort)" href>Sort By Number</a>
 		</li>
 		<li ng-class="{active:attrib === 'suit'}">
-			<a ng-click="setFilter('suit');" href>Sort By Suit</a>
+			<a ng-click="sortDeck('suit', false, reverseSort)" href>Sort By Suit</a>
+		</li>
+		<li>
+			<label class="checkbox-inline" style="margin: 3px; color: #333;">
+				<input type="checkbox" ng-model="reverseSort" style="margin: 2px -16px;" ng-change="sortDeck(attrib, false, reverseSort)" ng-true-value="true" ng-false-value="false">
+				Reverse {{reverseSort}}
+			</label>
 		</li>
 	</ul>
 
