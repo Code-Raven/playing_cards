@@ -127,7 +127,7 @@
 		$rootScope.hand = [];
 
 		$rootScope.attrib = 'suit';
-		$rootScope.numCards = 3;
+		$rootScope.numCards = 7;
 
 		$rootScope.numCardsDrawn = 0;
 		$rootScope.animStyle = 'display: none;';
