@@ -193,7 +193,7 @@
 	app.directive('copyRight', function () {
 		return {
 			restrict: 'E',
-			templateUrl: 'partials/copyright.html'	//TODO: Test?
+			templateUrl: 'partials/copyright.html'
 		};
 	});
 

@@ -3,7 +3,6 @@
 
 	var app = angular.module('about');
 
-	//TODO: Test, check author and explain values…
 	app.controller('AboutController', function($scope) {
 		$scope.author = 'Branden Oden',
 		$scope.explain = 'Welcome :)\n\nThis application allows you to view a deck\n' +

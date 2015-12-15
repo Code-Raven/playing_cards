@@ -38,13 +38,12 @@
 	});
 
 	app.run(function($rootScope, $location) {
-		//TODO: Test $rootScope.activeTab === '/deck'?
 		$rootScope.activeTab = locPath[$location.path()] || locPath['/deck'];
-		//TODO: Test pass "deck, hand, and about", get back "/deck, /hand, /about"
+
 		$rootScope.getLocPath = function(path) {
 			return locPath[path];
 		};
-		//TODO: Test pass "deck, hand, and about", get back "1, 2, 3"
+
 		$rootScope.getLocTab = function(path) {
 			return locPath[locPath[path]];
 		};
