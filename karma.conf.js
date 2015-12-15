@@ -19,7 +19,11 @@ module.exports = function(config) {
         {pattern: 'app/js/angular-route.min.js', watch: false},
         {pattern: 'app/js/angular-route.min.js', watch: false},
         {pattern: 'app/js/angular-mocks.js', watch: false},
-        'app/js/*.js',
+        'app/js/modules/about.js',
+        'app/js/modules/hand.js',
+        'app/js/modules/deck.js',
+        'app/js/modules/app.js',
+        'app/js/**/*.js',
         'tests/**/*.js'
     ],
 

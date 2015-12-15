@@ -7,7 +7,7 @@
 		numCardsChosen = 7,
 		animStyle = 'display: none;';
 
-	app.controller('HandController', function($rootScope, $scope, $filter) {
+	app.controller('HandController', function($scope, $filter) {
 
 		$scope.getCardsHidden = function() {
 			return cardsHidden;

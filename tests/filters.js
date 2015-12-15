@@ -10,10 +10,10 @@ describe('filters', function() {
 	}));
 
 	it('has shuffle filter', function() {
-		expect($filter('shuffleDeck')).not.toBeNull();
+		expect($filter('shuffleCards')).not.toBeNull();
 	});
 
 	it('has sort deck filter', function() {
-		expect($filter('sortDeck')).not.toBeNull();
+		expect($filter('sortCards')).not.toBeNull();
 	});
 });

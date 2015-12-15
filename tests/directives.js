@@ -1,6 +1,6 @@
 'use strict';
 
-describe("directives", function () {
+xdescribe("directives", function () {
 	var $rootScope, $scope, $compile;
 
 	beforeEach(module('app'));
