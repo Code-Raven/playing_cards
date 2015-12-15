@@ -1,7 +1,8 @@
 (function(){
 	'use strict'
 
-	var app = angular.module('deck', []);
+	var app = angular.module('app');
+
 	var imgPath = 'svgs/';
 	var srcMap = {
 		clubs_ace: imgPath + 'clubs_0.svg',
@@ -116,131 +117,57 @@
 		{ name: 'hearts_king', hidden: false, deckNum: 52, suitNum: 13, suit: 'hearts'}
 	];
 
-	var extraCards = [
+	var hand = [], discarded = [
 		{ name: 'joker_black', hidden: false, deckNum: 53, suitNum: 13, suit: 'zblack'},
 		{ name: 'joker_red', hidden: false, deckNum: 54, suitNum: 13, suit: 'zred'}
 	];
 
-	app.run(function($rootScope) {
-		$rootScope.deck = cards;
-		$rootScope.discarded = extraCards;
-		$rootScope.hand = [];
+	var cardPositions = [
+		'50% - 300px - 50px',
+		'50% - 250px - 50px',
+		'50% - 200px - 50px',
+		'50% - 150px - 50px',
+		'50% - 100px - 50px',
+		'50% - 50px - 50px',
+		'50% + 0px - 50px',
+		'50% + 50px - 50px',
+		'50% + 100px - 50px',
+		'50% + 150px - 50px',
+		'50% + 200px - 50px',
+		'50% + 250px - 50px',
+		'50% + 300px - 50px'
+	];
 
-		$rootScope.attrib = 'suit';
-		$rootScope.numCards = 7;
+	app.controller('AppController', function($scope, $filter) {
 
-		$rootScope.numCardsDrawn = 0;
-		$rootScope.animStyle = 'display: none;';
-	});
+		$scope.getDeck = function() {
+			return cards;
+		};
 
-	app.controller('DeckController', function($rootScope, $scope, $filter) {
-		
-		$scope.cardsHidden = true;
-		$scope.reverseSort = false;
-		$scope.cardPositions = [
-			'50% - 300px - 50px',
-			'50% - 250px - 50px',
-			'50% - 200px - 50px',
-			'50% - 150px - 50px',
-			'50% - 100px - 50px',
-			'50% - 50px - 50px',
-			'50% + 0px - 50px',
-			'50% + 50px - 50px',
-			'50% + 100px - 50px',
-			'50% + 150px - 50px',
-			'50% + 200px - 50px',
-			'50% + 250px - 50px',
-			'50% + 300px - 50px'
-		];
+		$scope.getHand = function() {
+			return hand;
+		};
 
-		var indexOffset = function(cardIndex, numCards) {
-			var maxNumCards = $scope.cardPositions.length,
-	    		availNumCards = numCards || $rootScope.hand.length;
+		$scope.getDiscarded = function() {
+			return discarded;
+		};
+
+		$scope.getCardPositions = function() {
+			return cardPositions;
+		};
+
+		$scope.getIndexOffset = function(cardIndex, numCards) {
+			var maxNumCards = cardPositions.length,
+	    		availNumCards = numCards || hand.length;
 
 	    	return (cardIndex + Math.floor((maxNumCards -
 	    		availNumCards)/2)) % maxNumCards;
 	    };
 
-	    $scope.numCardsSelected = function(numCardsSelected) {
-	        $rootScope.numCards = Math.min(numCardsSelected, $rootScope.deck.length);
-	    };
-
 	    $scope.getCardPosition = function(cardIndex, numCards) {
-	    	return $scope.cardPositions[indexOffset(cardIndex, numCards)];
+	    	return cardPositions[
+	    		$scope.getIndexOffset(cardIndex, numCards)];
 	    };
-
-	    $scope.hideCards = function(cards, isHidden) {
-			for(var i = 0, length = cards.length; i < length; ++i) {
-				cards[i].hidden = isHidden;
-			}
-		};
-
-		$scope.removeCards = function(fromDeck, toDeck, cardIndex, numCards) {
-			var cards = fromDeck.splice(cardIndex, numCards);
-			cards.push.apply(toDeck, cards);
-		};
-
-		$scope.drawCards = function(numCards) {
-			var deck = $rootScope.deck,
-				hand = $rootScope.hand;
-
-			$rootScope.numCardsDrawn = numCards;
-			$scope.removeCards(deck, hand, 0, numCards);
-
-			$scope.getAnimStyle = function(cardIndex) {
-
-				var horizIndex = indexOffset(cardIndex),
-					cardPosition = $scope.getCardPosition(cardIndex);
-
-				return 'position: absolute; ' +
-					'z-index: ' + cardIndex + '; ' +
-					'top: 8px; ' +
-					'left: calc(' + cardPosition + '); ' +
-					'left: -moz-calc(' + cardPosition + '); ' +
-					'left: -webkit-calc(' + cardPosition + '); ' +
-					'left: -o-calc(' + cardPosition + '); ' +
-					'animation-name: animRight' + horizIndex + '; ' +
-					'animation-duration: 1s; ' +
-					'-webkit-animation-name: animRight' + horizIndex + '; ' +
-					'-webkit-animation-duration: 1s;';
-			};
-		};
-
-		($scope.clearCards = function() {
-	    	var deck = $rootScope.deck,
-	    		hand = $rootScope.hand;
-
-	    	$rootScope.numCardsDrawn = 0;
-	    	$scope.removeCards(hand, deck, 0, hand.length);
-
-			$scope.getAnimStyle = function() {
-				return 'display: none;';
-			};
-		})();
-
-		$scope.drawClearCards = function(numCards) {
-	    	if($rootScope.numCardsDrawn) {
-	    		$scope.clearCards();
-	    	} else {
-	    		$scope.drawCards(numCards);
-	    	}
-	    };
-
-	    $scope.shuffleDeck = function(clone, reverse){
-	    	$rootScope.attrib = null;	//HACK: to keep shuffled deck from sorting…
-	    	$rootScope.reverseSort = reverse || $rootScope.reverseSort;
-			$rootScope.deck = $filter("shuffleDeck")($rootScope.deck,
-				clone, $rootScope.reverseSort);
-		};
-
-		($scope.sortDeck = function(attrib, clone, reverse){
-			if(attrib) {	//HACK: to keep shuffled deck from sorting…
-				$rootScope.attrib = attrib;
-				$rootScope.reverseSort = reverse;
-				$rootScope.deck = $filter("sortDeck")($rootScope.deck,
-					attrib, clone, $rootScope.reverseSort);
-			}
-		})($rootScope.attrib, false, $rootScope.reverseSort);
 	});
 
 	app.directive('playingCard', function () {
@@ -263,73 +190,11 @@
 		};
 	});
 
-	app.filter('shuffleDeck', function(){
-		return function(deck, clone, reverse) {
-			if (!angular.isArray(deck)){
-				return deck;
-			}
-
-			var shuffledDeck = clone ? deck.slice() : deck,
-				remainNumCards = shuffledDeck.length,
-				swappedCard, randIndex, index;
-
-			//Since Math.random is always less than 1,
-			//	don't decrement remainNumCards…
-			while(remainNumCards) {	
-				randIndex = Math.floor(Math.random() *
-					remainNumCards);
-
-				index = --remainNumCards;
-				swappedCard = shuffledDeck[index];
-				shuffledDeck[index] = shuffledDeck[randIndex];
-				shuffledDeck[randIndex] = swappedCard;
-			}
-
-			if(reverse) {
-				shuffledDeck.reverse();
-			}
-
-			return shuffledDeck;
+	app.directive('copyRight', function () {
+		return {
+			restrict: 'E',
+			templateUrl: 'partials/copyright.html'	//TODO: Test?
 		};
 	});
 
-	app.filter('sortDeck', function(){
-		return function(deck, attribute, clone, reverse) {
-			if (!angular.isArray(deck)){
-				return deck;
-			}
-
-			var sortedDeck = clone ? deck.slice() : deck;
-
-			sortedDeck.sort(function(a, b) {
-				var aAttrib = a[attribute],
-					bAttrib = b[attribute],
-					aNum = parseInt(aAttrib),
-					bNum = parseInt(bAttrib);
-
-				//Making sure aNum and bNum aren't NaN…
-				if (aNum === aNum && bNum === bNum) {
-					if(aAttrib === bAttrib) {
-						return a.deckNum - b.deckNum;
-					} else {
-						return aNum - bNum;
-					}
-				}
-
-				if(aAttrib === bAttrib) {
-					return a.deckNum - b.deckNum;
-				} else if (aAttrib > bAttrib) {
-					return 1;
-				} else {
-					return -1;
-				}
-			});
-
-			if(reverse) {
-				sortedDeck.reverse();
-			}
-
-			return sortedDeck;
-		};
-	});
 })();

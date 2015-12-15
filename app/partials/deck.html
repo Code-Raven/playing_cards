@@ -1,36 +1,36 @@
-<div style="line-height: 16px;" class="no-select">
+<div ng-init="sortCards(getDeck(), getAttrib(), false, getReverseSort()); removeCards(getHand(), getDeck(), 0, getHand().length)" ng-controller="AppController" style="line-height: 16px;" class="no-select">
 
 	<ul class="nav nav-pills centered-pills small-buttons">
 		<li>
-			<button type="button" ng-click="shuffleDeck(false);" class="btn btn-default">Shuffle</button>
+			<button type="button" ng-click="shuffleCards(getDeck(), false);" class="btn btn-default">Shuffle</button>
 		</li>
-		<li ng-class="{active:attrib === 'suitNum'}">
-			<a ng-click="sortDeck('suitNum', false, reverseSort)" href>Sort By Number</a>
+		<li ng-class="{active:getAttrib() === 'suitNum'}">
+			<a ng-click="sortCards(getDeck(), 'suitNum', false, reverseSort)" href>Sort By Number</a>
 		</li>
-		<li ng-class="{active:attrib === 'suit'}">
-			<a ng-click="sortDeck('suit', false, reverseSort)" href>Sort By Suit</a>
+		<li ng-class="{active:getAttrib() === 'suit'}">
+			<a ng-click="sortCards(getDeck(), 'suit', false, reverseSort)" href>Sort By Suit</a>
 		</li>
 		<li>
-			<label class="checkbox-inline" style="margin: 3px; color: #333;">
-				<input type="checkbox" ng-model="reverseSort" style="margin: 2px -16px;" ng-change="sortDeck(attrib, false, reverseSort)" ng-true-value="true" ng-false-value="false">
+			<label ng-init="reverseSort = false" class="checkbox-inline" style="margin: 3px; color: #333;">
+				<input type="checkbox" ng-model="reverseSort" style="margin: 2px -16px;" ng-change="sortCards(getDeck(), getAttrib(), false, reverseSort)" ng-true-value="true" ng-false-value="false">
 				Reverse
 			</label>
 		</li>
 	</ul>
 
 	<div id="start" class="list-group list-group-item" style="display: inline-flex; width:900px; height: 627px">
-		<div ng-show="discarded.length" style="width: 225px; margin: 0; position: relative; left: 0; top: 0;">
+		<div ng-show="getDiscarded().length" style="width: 225px; margin: 0; position: relative; left: 0; top: 0;">
 			<H4 style="margin: 0 0 10px 0;">Discarded…</H4>
 			<div class="cards" style="position: relative; margin: 0 0 10px 0;">
-				<div ng-repeat="card in discarded" style="position: absolute; z-index: {{$index}}; top: {{($index % 16) * 28}}px; left: {{$index > 15 ? ($index > 31 ? ($index > 47 ? 75 : 50) : 25) : 0}}px;">
-					<playing-card ng-init="hideCard(card, false)" ng-click="removeCards(discarded, deck, $index, 1); setFilter(attrib);"><playing-card>
+				<div ng-repeat="card in getDiscarded()" style="position: absolute; z-index: {{$index}}; top: {{($index % 16) * 28}}px; left: {{$index > 15 ? ($index > 31 ? ($index > 47 ? 75 : 50) : 25) : 0}}px;">
+					<playing-card ng-init="hideCard(card, false)" ng-click="removeCards(getDiscarded(), getDeck(), $index, 1); sortCards(getDeck(), getAttrib(), false, getReverseSort())"><playing-card>
 				</div>
 			</div>
 		</div>
 
 		<div class="cards" style="width: 100%; margin: 0; position: relative; left: 0; top: 0;">
-			<div ng-repeat="card in deck" style="position: absolute; z-index: {{$index}}; top: {{$index > 12 ? ($index > 25 ? ($index > 38 ? ($index > 51 ? 460 : 345) : 230) : 115) : 0}}px; left: calc({{getCardPosition($index, 13)}}); left: -moz-calc({{getCardPosition($index, 13)}}); left: -webkit-calc({{getCardPosition($index, 13)}}); left: -o-calc({{getCardPosition($index, 13)}});">
-				<playing-card ng-init="hideCard(card, false)" ng-click="removeCards(deck, discarded, $index, 1)"><playing-card>
+			<div ng-repeat="card in getDeck()" style="position: absolute; z-index: {{$index}}; top: {{$index > 12 ? ($index > 25 ? ($index > 38 ? ($index > 51 ? 460 : 345) : 230) : 115) : 0}}px; left: calc({{getCardPosition($index, 13)}}); left: -moz-calc({{getCardPosition($index, 13)}}); left: -webkit-calc({{getCardPosition($index, 13)}}); left: -o-calc({{getCardPosition($index, 13)}});">
+				<playing-card ng-init="hideCard(card, false)" ng-click="removeCards(getDeck(), getDiscarded(), $index, 1)"><playing-card>
 			</div>
 		</div>
 	</div>

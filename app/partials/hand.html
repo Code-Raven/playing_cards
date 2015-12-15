@@ -1,31 +1,31 @@
-<div id="start" class="list-group no-select list-group-item">
+<div ng-controller="AppController" ng-init="clearCards(getDeck(), getHand())" id="start" class="list-group no-select list-group-item">
 
-	<label class="checkbox-inline" style="display: block; text-align: center; color: #333;">
-		<input type="checkbox" ng-model="cardsHidden" ng-change="hideCards(hand, cardsHidden)" ng-true-value="true" ng-false-value="false" checked>
+	<label ng-init="cardsHidden = true" class="checkbox-inline" style="display: block; text-align: center; color: #333;">
+		<input type="checkbox" ng-model="cardsHidden" ng-change="hideCards(getHand(), cardsHidden)" ng-true-value="true" ng-false-value="false" checked>
 		Hide Cards
 	</label>
 
 	<div class="cards" ng-init="draw = false" style="margin: 0 15px 15px 15px; position: relative;">
 		<div>
-			<playing-card ng-repeat="n in [0,1,2,3,4,5]" ng-init="card = undefined" ng-show="$index < deck.length" ng-click="drawClearCards(numCards)" style="position: absolute; top: {{(n % 2) * 3 + n}}px; left: {{n * 3}}px;"><playing-card>
+			<playing-card ng-repeat="n in [0,1,2,3,4,5]" ng-init="card = undefined" ng-show="$index < getDeck().length" ng-click="drawClearCards(getDeck(), getHand(), getNumCardsChosen())" style="position: absolute; top: {{(n % 2) * 3 + n}}px; left: {{n * 3}}px;"><playing-card>
 		</div>
 
 		<div class="card-div-width card-div-height center-div">
-			<div ng-repeat="card in hand" style="{{getAnimStyle($index)}}">
-				<playing-card ng-init="hideCard(card, cardsHidden)" ng-click="hideCard(card, !card.hidden)"></playing-card>
+			<div ng-repeat="card in getHand()" style="{{getAnimStyle(getCardPosition($index, getNumCardsDrawn()), getIndexOffset($index))}}">
+				<playing-card ng-init="hideCard(card, getCardsHidden())" ng-click="hideCard(card, !card.hidden)"></playing-card>
 			</div>
 		</div>
 	</div>
 
 	<div>
-		<div ng-switch on="deck.length + hand.length" style="text-align: center;">
+		<div ng-switch on="getDeck().length + getHand().length" style="text-align: center;">
 			<h4 class="center-text" ng-switch-when="0">Deck is empty.</h4>
-			<a ng-switch-default class="btn cntr-btn btn-default no-border" ng-class="{'clear-cards':numCardsDrawn}" ng-click="drawClearCards(numCards)">{{numCardsDrawn ? 'Clear Hand' : 'Draw ' + numCards + ' Card' + (numCards > 1 ? '\'s' : '')}}</a>
+			<a ng-switch-default class="btn cntr-btn btn-default no-border" ng-class="{'clear-cards':getNumCardsDrawn()}" ng-click="drawClearCards(getDeck(), getHand(), getNumCardsChosen())">{{getNumCardsDrawn() ? 'Clear Hand' : 'Draw ' + getNumCardsChosen() + ' Card' + (getNumCardsChosen() > 1 ? '\'s' : '')}}</a>
 		</div>
 
-		<ul class="nav nav-pills centered-pills small-buttons">
-			<li ng-repeat="n in cardPositions" ng-show="$index < deck.length" ng-class="{active:($index + 1) === numCards}">
-				<a ng-click="numCardsSelected($index + 1)" href>{{$index + 1}}</a>
+		<ul ng-init="chooseNumCards(getDeck(), getNumCardsChosen() || 1)" class="nav nav-pills centered-pills small-buttons">
+			<li ng-repeat="n in getCardPositions()" ng-show="$index < getDeck().length" ng-class="{active:($index + 1) === getNumCardsChosen()}">
+				<a ng-click="chooseNumCards(getDeck(), $index + 1)" href>{{$index + 1}}</a>
 			</li>
 		</ul>
 	</div>
